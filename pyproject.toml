@@ -1,0 +1,56 @@
+[project]
+name = "pyspark-datasets"
+version = "0.1.0"
+description = "Bringing type-checking and schema validation to PySpark DataFrames."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pyspark",
+    "sparkdantic",
+    "exceptiongroup; python_version < '3.11'",
+]
+
+[dependency-groups]
+dev = [
+    "exceptiongroup"
+]
+test = [
+    "pytest",
+    "pytest-cov",
+    "exceptiongroup",
+]
+cqa = [
+    "ruff",
+    "mypy",
+]
+docs = [
+    "pdoc3",
+]
+
+[tool.pytest.ini_options]
+pythonpath = "."
+testpaths = "tests"
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+preview = true
+select = ["D", "E", "F", "W", "DOC"]
+ignore = ["D105", "D107"]
+
+[tool.ruff.lint.per-file-ignores]
+"!pyspark_datasets/**.py" = ["D", "DOC"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.mypy]
+strict = true
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+exclude = "tests"
+
+[tool.uv]
+default-groups = "all"

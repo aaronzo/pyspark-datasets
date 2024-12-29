@@ -1,0 +1,13 @@
+.venv
+venv
+*-venv
+.vscode
+__pycache__
+*.egg-info/
+.mypy_cache
+*.parquet
+scratch.*
+uv.lock
+.python-version
+.coverage
+htmlconv
