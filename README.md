@@ -1,3 +1,8 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CI](https://github.com/aaronzo/pyspark-datasets/actions/workflows/ci.yml/badge.svg)](https://github.com/aaronzo/pyspark-datasets/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/aaronzo/pyspark-datasets/graph/badge.svg?token=W95YNE9KX2)](https://codecov.io/gh/aaronzo/pyspark-datasets)
+-------------------------
+
 # 📚 pyspark-datasets 📐
 
 `pyspark-datasets` is a Python package for typed dataframes in [PySpark](https://spark.apache.org/docs/latest/api/python/index.html).
