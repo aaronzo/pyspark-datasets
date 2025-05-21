@@ -1,12 +1,14 @@
 """Column annotation and utilities for `TypedDataFrame` instances."""
 
-from typing import Any, Protocol
+from typing import Any, Protocol, TypeVar, Generic
 from pyspark.sql import Column
 import functools as ft
 import pyspark.sql.functions as F
 import typing
 import dataclasses as dc
 
+
+_T = TypeVar("_T", bound=type[Any])
 
 def colname(column: Column) -> str:
     """Get the string name of a spark column, even if it is a lazy column.
@@ -29,18 +31,18 @@ def colname(column: Column) -> str:
 
 
 @dc.dataclass
-class Col[T: type[Any]]:
-    """Typed Column Annotation.
+class Col(Generic[_T]):
+    """Column annotation for use in `TypedDataFrame` subclasses.
 
-    Can either be used as a shorthand for `Annotated[Column, T]`, e.g. `Col[str]`
-    or as the annotation itself, e.g. `Annotated[Column, Col(str)]`.
+    Allows defining aliases for column fields when specifying a column annotation
+    or to separate the annotations for `TypedDataFrame` from any others the user may be using.
 
     Attributes:
         field_type (type[Any]): The type of the column.
         alias (str | None, optional): The alias of the column. Defaults to None.
     """
 
-    field_type: T
+    field_type: _T
     alias: str | None = dc.field(default=None, kw_only=True)
 
 
