@@ -83,7 +83,7 @@ pytest --cov=pyspark_datasets tests/ --cov-report=html  # Run unit tests
 mypy pyspark_datasets                                   # Type-check code
 ruff check                                              # Lint code
 ruff format                                             # Autoformat code
-pdoc pyspark_datasets -f --html -o ./docs               # Build documentation
+pdoc pyspark_datasets -f --html -o ./docs               # Build API reference
 ```
 
 ## Contributing

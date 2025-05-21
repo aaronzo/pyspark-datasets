@@ -9,4 +9,4 @@ __all__ = [
     "TypedDataFrame",
 ]
 
-__version__ = "0.1.0"  # TODO dynamic versioning?
+__version__ = "0.1.0"
